@@ -1,0 +1,48 @@
+server:
+  port: 8282
+
+#eureka:
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone:  ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka
+#  instance:
+#    prefer-ip-address: true
+
+logging:
+  file:
+    name: C:/Users/Lenovo/spring-boot-logging/api.log
+  level:
+    M7:
+      Application: WARN
+    com:
+      springdocker:
+        springdocker: DEBUG
+    org:
+      springframework:
+        web: ERROR
+  pattern:
+    console: '"%d{yyyy-MM-dd HH:mm:ss} - %msg%n"'
+    file: '"%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"'
+spring:
+  application:
+    name: ORDER-SERVICE
+  datasource:
+    password: root
+    url: jdbc:mysql://localhost:3306/orderdb
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: true
+  cloud:
+   config:
+      enabled: true
+      url: optional:configserver:http://localhost:9296
+ 
